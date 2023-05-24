@@ -1,0 +1,38 @@
+:root{
+  --slack-color:#3f0e40;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.sc-dIfARi{
+  cursor: pointer;
+   display: none;
+}
+.sc-idXgbr{
+  cursor: pointer;
+}
+.gBgCQq:hover p{
+  color: #fff;
+} 
+button:hover{
+  transform: scale(1.02);
+}
+@media  only screen  and (max-width:450px) {
+  .img{
+    width: 100px;
+    height: 50px;
+  }
+}
+a{
+  text-decoration: none;
+}

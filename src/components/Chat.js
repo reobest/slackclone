@@ -60,6 +60,10 @@ top: 6vh;
 left: 18%;
 z-index: 200;
 background-color: #fff;
+@media  only screen  and (max-width:450px) {
+    margin-left: 50px;
+    width:100%
+}
 >h1{
     margin: 0 0 0 15px;
 }
@@ -71,6 +75,9 @@ const ChatContainer = styled.div`
     right: 0;
     top: 14%;
     overflow-y: scroll;
+    @media  only screen  and (max-width:450px) {
+    width: 70%;
+}
 `
 const ChatInput = styled.input`
     position: fixed;
@@ -87,6 +94,9 @@ const ChatInput = styled.input`
     ::placeholder{
         font-size: 15px;
     }
+@media  only screen  and (max-width:450px) {
+  transform: translateX(53%);
+}
 `
 const ChatButton = styled.button`
 display: none;

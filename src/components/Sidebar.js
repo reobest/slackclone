@@ -15,7 +15,7 @@ const Sidebar =   () => {
     const [docs,loading] = useCollectionData(query)
     const [user] = useAuthState(auth)
     const context = useGlobalContext()
-    const {addChannel,clickItem,Icon,handleIcon,r,serR} = context
+    const {addChannel,clickItem,Icon,handleIcon,r,serR,setChannelName} = context
     const newList = List.map(( member ) => {
         const {id,name,icon} = member
         if(id===9) {
@@ -52,9 +52,12 @@ const Sidebar =   () => {
       {newList}
        {
          !loading && docs.map(function(chann,index) {
-          const w = r[index]
+          const ChannelRoom = r[index]
           if(Icon) {
-            return <Link to={`/${w}`} key={w}><Channels key={w} id={w}   onClick={() => clickItem(w)} style={{cursor:"pointer"}}>{`#${chann.name}`}</Channels></Link>
+            return <Link to={`/${ChannelRoom}`} key={ChannelRoom}><Channels key={ChannelRoom} id={ChannelRoom}   onClick={() => {
+              clickItem(ChannelRoom)
+              setChannelName(chann.name)
+            }}>{`#${chann.name}`}</Channels></Link>
           }
           return null
       })
@@ -64,13 +67,15 @@ const Sidebar =   () => {
 };
 export default Sidebar;
 const Channels = styled.div`
+   cursor:"pointer";
    color: #fff;
    margin-left: 20px;
    margin-top: 10px;
    font-size: 15px;
    text-decoration: none;
    @media  only screen  and (max-width:450px) {
-     font-size: 10px;
+     font-size: 16px;
+     margin: 7px;
     }
 `
 const SideBarHeader = styled.div`
@@ -100,6 +105,10 @@ const SideBarHeader = styled.div`
    font-size: 1.4vw;
    font-weight: 700;
    letter-spacing: .2px;
+   @media  only screen  and (max-width:450px) {
+    margin: 0 ;
+    font-size: 12px;
+    }
  }
  >svg{
     cursor: pointer;
@@ -126,6 +135,9 @@ bottom: 0;
   width: 17%;
   height: calc(100% - 6vh);
   background-color: var(--slack-color);
+  @media  only screen  and (max-width:450px) {
+   width: 30%;
+    }
 `
 const ListContainer = styled.div`
   display: flex;
@@ -145,7 +157,7 @@ const ListContainer = styled.div`
     font-size: 1vw;
     margin-left: 5px;
     @media  only screen  and (max-width:450px) {
-   font-size: 7px;
+   font-size: 12px;
     }
   }
   >div>svg{
@@ -177,10 +189,11 @@ const AddChannelIcon = styled.div`
        font-size: 8px;
      }
     }
->p{
+p{
     margin-left: 5px;
     @media  only screen  and (max-width:450px) {
-   font-size: 7px;
+   font-size: 16px;
+   margin: 7px;
      >div>svg{
        font-size: 100px;
      }

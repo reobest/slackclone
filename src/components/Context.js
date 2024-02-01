@@ -12,7 +12,8 @@ const AppProvider = ({ children }) => {
     const  [roomId,setRoomId] = useState('')
     const [r,serR] = useState([])
     const [messege,setMessege] = useState([])
-    let [i,setI] = useState(0)
+    const [channelName,setChannelName] = useState("")
+    let [Counter,setCounter] = useState(0)
     const handleIcon = () => {
         setIcon(!Icon)
     }
@@ -30,7 +31,7 @@ const AppProvider = ({ children }) => {
         setDisabled(true)
     },[])
     const addChannel = async () => { 
-        setI(i=i+1)     
+      setCounter(prev =>prev+1)     
         const newName = prompt("Please Enter a Channel Name")
         const dataRoom = {
             name:newName,
@@ -43,7 +44,7 @@ const AppProvider = ({ children }) => {
     useEffect(() => { 
     },[messege])
   return (
-    <AppContext.Provider value={{channel,setChannel,addChannel,clickItem,input,setInput,showMessege,disabled,setDisabled,Icon,handleIcon,roomId,r,serR,messege,setMessege,setRoomId}}>
+    <AppContext.Provider value={{channel,setChannel,addChannel,clickItem,input,setInput,showMessege,disabled,setDisabled,Icon,handleIcon,roomId,r,serR,messege,setMessege,setRoomId,setChannelName,channelName}}>
       {children}
     </AppContext.Provider>
   )

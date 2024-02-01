@@ -22,7 +22,7 @@
   },
   "hosting": {
     "targets": {
-      "firebase-rayan": {
+      "fir-rayan-b57cf": {
         "hosting": {
           "site": "https://fir-rayan-b57cf.web.app/"
         }

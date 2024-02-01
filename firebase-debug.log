@@ -1,120 +1,33 @@
-[debug] [2024-02-01T20:49:39.605Z] ----------------------------------------------------------------------
-[debug] [2024-02-01T20:49:39.609Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\reoo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
-[debug] [2024-02-01T20:49:39.610Z] CLI Version:   11.16.1
-[debug] [2024-02-01T20:49:39.611Z] Platform:      win32
-[debug] [2024-02-01T20:49:39.611Z] Node Version:  v18.19.0
-[debug] [2024-02-01T20:49:39.613Z] Time:          Thu Feb 01 2024 12:49:39 GMT-0800 (Pacific Standard Time)
-[debug] [2024-02-01T20:49:39.613Z] ----------------------------------------------------------------------
+[debug] [2024-02-01T21:05:48.975Z] ----------------------------------------------------------------------
+[debug] [2024-02-01T21:05:48.979Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2024-02-01T21:05:48.980Z] CLI Version:   13.1.0
+[debug] [2024-02-01T21:05:48.981Z] Platform:      win32
+[debug] [2024-02-01T21:05:48.982Z] Node Version:  v18.19.0
+[debug] [2024-02-01T21:05:48.983Z] Time:          Thu Feb 01 2024 13:05:48 GMT-0800 (Pacific Standard Time)
+[debug] [2024-02-01T21:05:48.984Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2024-02-01T20:49:39.788Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2024-02-01T20:49:39.789Z] > authorizing via signed-in user (sabdelrahman071@gmail.com)
-[debug] [2024-02-01T20:49:39.790Z] [iam] checking project fir-rayan-b57cf for permissions ["firebase.projects.get","firebasehosting.sites.update"]
-[debug] [2024-02-01T20:49:39.792Z] > refreshing access token with scopes: []
-[debug] [2024-02-01T20:49:39.796Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2024-02-01T20:49:39.796Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:49:40.421Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
-[debug] [2024-02-01T20:49:40.421Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:49:40.422Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions [none]
-[debug] [2024-02-01T20:49:40.422Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions x-goog-quota-user=projects/fir-rayan-b57cf
-[debug] [2024-02-01T20:49:40.422Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2024-02-01T20:49:41.527Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions 401
-[debug] [2024-02-01T20:49:41.527Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"ACCESS_TOKEN_TYPE_UNSUPPORTED","metadata":{"method":"google.cloudresourcemanager.v1.Projects.TestIamPermissions","service":"cloudresourcemanager.googleapis.com"}}]}}
-[debug] [2024-02-01T20:49:41.529Z] [iam] error while checking permissions, command may fail: FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
-[debug] [2024-02-01T20:49:41.530Z] > refreshing access token with scopes: []
-[debug] [2024-02-01T20:49:41.532Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2024-02-01T20:49:41.532Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:49:41.842Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
-[debug] [2024-02-01T20:49:41.843Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:49:41.844Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fir-rayan-b57cf [none]
-[debug] [2024-02-01T20:49:42.259Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fir-rayan-b57cf 401
-[debug] [2024-02-01T20:49:42.260Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fir-rayan-b57cf {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
-[debug] [2024-02-01T20:49:42.260Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
-[debug] [2024-02-01T20:49:42.650Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
-    at responseToError (C:\Users\reoo\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
-    at RetryOperation._fn (C:\Users\reoo\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[error] 
-[error] Error: Failed to get Firebase project fir-rayan-b57cf. Please make sure the project exists and your account has permission to access it.
-[debug] [2024-02-01T20:51:14.145Z] ----------------------------------------------------------------------
-[debug] [2024-02-01T20:51:14.150Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\reoo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js use --add
-[debug] [2024-02-01T20:51:14.151Z] CLI Version:   11.16.1
-[debug] [2024-02-01T20:51:14.151Z] Platform:      win32
-[debug] [2024-02-01T20:51:14.152Z] Node Version:  v18.19.0
-[debug] [2024-02-01T20:51:14.154Z] Time:          Thu Feb 01 2024 12:51:14 GMT-0800 (Pacific Standard Time)
-[debug] [2024-02-01T20:51:14.155Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2024-02-01T20:51:14.320Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2024-02-01T20:51:14.321Z] > authorizing via signed-in user (sabdelrahman071@gmail.com)
-[debug] [2024-02-01T20:51:14.325Z] > refreshing access token with scopes: []
-[debug] [2024-02-01T20:51:14.329Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2024-02-01T20:51:14.329Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:51:14.740Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
-[debug] [2024-02-01T20:51:14.741Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:51:14.743Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
-[debug] [2024-02-01T20:51:15.138Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 401
-[debug] [2024-02-01T20:51:15.138Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
-[debug] [2024-02-01T20:51:15.140Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
-[debug] [2024-02-01T20:51:15.736Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
-    at responseToError (C:\Users\reoo\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
-    at RetryOperation._fn (C:\Users\reoo\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[error] 
-[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
-[debug] [2024-02-01T20:55:10.891Z] ----------------------------------------------------------------------
-[debug] [2024-02-01T20:55:10.896Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js projects:list --debug
-[debug] [2024-02-01T20:55:10.897Z] CLI Version:   13.1.0
-[debug] [2024-02-01T20:55:10.898Z] Platform:      win32
-[debug] [2024-02-01T20:55:10.899Z] Node Version:  v18.19.0
-[debug] [2024-02-01T20:55:10.901Z] Time:          Thu Feb 01 2024 12:55:10 GMT-0800 (Pacific Standard Time)
-[debug] [2024-02-01T20:55:10.901Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2024-02-01T20:55:11.069Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2024-02-01T20:55:11.072Z] > authorizing via signed-in user (sabdelrahman071@gmail.com)
-[debug] [2024-02-01T20:55:11.081Z] > refreshing access token with scopes: []
-[debug] [2024-02-01T20:55:11.086Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2024-02-01T20:55:11.087Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:55:11.594Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
-[debug] [2024-02-01T20:55:11.595Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:55:11.599Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
-[debug] [2024-02-01T20:55:12.084Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 401
-[debug] [2024-02-01T20:55:12.085Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
-[debug] [2024-02-01T20:55:12.091Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
-[debug] [2024-02-01T20:55:12.484Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
-    at responseToError (C:\Users\reoo\AppData\Roaming\nvm\v18.19.0\node_modules\firebase-tools\lib\responseToError.js:49:12)
-    at RetryOperation._fn (C:\Users\reoo\AppData\Roaming\nvm\v18.19.0\node_modules\firebase-tools\lib\apiv2.js:292:77)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[error] 
-[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
-[debug] [2024-02-01T20:57:38.392Z] ----------------------------------------------------------------------
-[debug] [2024-02-01T20:57:38.395Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy --debug
-[debug] [2024-02-01T20:57:38.396Z] CLI Version:   13.1.0
-[debug] [2024-02-01T20:57:38.397Z] Platform:      win32
-[debug] [2024-02-01T20:57:38.397Z] Node Version:  v18.19.0
-[debug] [2024-02-01T20:57:38.399Z] Time:          Thu Feb 01 2024 12:57:38 GMT-0800 (Pacific Standard Time)
-[debug] [2024-02-01T20:57:38.399Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2024-02-01T20:57:38.573Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2024-02-01T20:57:38.576Z] > authorizing via signed-in user (sabdelrahman071@gmail.com)
-[debug] [2024-02-01T20:57:38.577Z] [iam] checking project fir-rayan-b57cf for permissions ["firebase.projects.get","firebasehosting.sites.update"]
-[debug] [2024-02-01T20:57:38.581Z] > refreshing access token with scopes: []
-[debug] [2024-02-01T20:57:38.585Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2024-02-01T20:57:38.586Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:57:40.679Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
-[debug] [2024-02-01T20:57:40.680Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:57:40.681Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions [none]
-[debug] [2024-02-01T20:57:40.681Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions x-goog-quota-user=projects/fir-rayan-b57cf
-[debug] [2024-02-01T20:57:40.682Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2024-02-01T20:57:41.889Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions 401
-[debug] [2024-02-01T20:57:41.889Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"ACCESS_TOKEN_TYPE_UNSUPPORTED","metadata":{"service":"cloudresourcemanager.googleapis.com","method":"google.cloudresourcemanager.v1.Projects.TestIamPermissions"}}]}}
-[debug] [2024-02-01T20:57:41.891Z] [iam] error while checking permissions, command may fail: FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
-[debug] [2024-02-01T20:57:41.892Z] > refreshing access token with scopes: []
-[debug] [2024-02-01T20:57:41.893Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2024-02-01T20:57:41.894Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:57:42.505Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
-[debug] [2024-02-01T20:57:42.506Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-02-01T20:57:42.508Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fir-rayan-b57cf [none]
-[debug] [2024-02-01T20:57:42.809Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fir-rayan-b57cf 401
-[debug] [2024-02-01T20:57:42.810Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fir-rayan-b57cf {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
-[debug] [2024-02-01T20:57:42.812Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2024-02-01T21:05:49.131Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-01T21:05:49.133Z] > authorizing via signed-in user (sabdelrahman071@gmail.com)
+[debug] [2024-02-01T21:05:49.133Z] [iam] checking project fir-rayan-b57cf for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-02-01T21:05:49.136Z] > refreshing access token with scopes: []
+[debug] [2024-02-01T21:05:49.139Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-02-01T21:05:49.140Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-01T21:05:49.733Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2024-02-01T21:05:49.734Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-01T21:05:49.734Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions [none]
+[debug] [2024-02-01T21:05:49.734Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions x-goog-quota-user=projects/fir-rayan-b57cf
+[debug] [2024-02-01T21:05:49.735Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-02-01T21:05:50.744Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions 401
+[debug] [2024-02-01T21:05:50.745Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-rayan-b57cf:testIamPermissions {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"ACCESS_TOKEN_TYPE_UNSUPPORTED","metadata":{"method":"google.cloudresourcemanager.v1.Projects.TestIamPermissions","service":"cloudresourcemanager.googleapis.com"}}]}}
+[debug] [2024-02-01T21:05:50.747Z] [iam] error while checking permissions, command may fail: FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2024-02-01T21:05:50.749Z] > refreshing access token with scopes: []
+[debug] [2024-02-01T21:05:50.750Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-02-01T21:05:50.750Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-01T21:05:51.153Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2024-02-01T21:05:51.153Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-01T21:05:51.155Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fir-rayan-b57cf [none]
+[debug] [2024-02-01T21:05:51.458Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fir-rayan-b57cf 401
+[debug] [2024-02-01T21:05:51.458Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fir-rayan-b57cf {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2024-02-01T21:05:51.458Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
 [error] 
 [error] Error: Assertion failed: resolving hosting target of a site with no site name or target name. This should have caused an error earlier

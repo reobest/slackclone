@@ -20,6 +20,15 @@
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
+  "hosting": {
+    "targets": {
+      "https://fir-rayan-b57cf.web.app/": {
+        "hosting": {
+          "site": "https://fir-rayan-b57cf.web.app/"
+        }
+      }
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
     "prebuild": "npm install",

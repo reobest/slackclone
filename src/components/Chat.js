@@ -91,6 +91,7 @@ const ChatInput = styled.input`
     padding-left: 15px;
     outline: none;
     border-radius: 2px;
+    font-size: 16px;
     ::placeholder{
         font-size: 15px;
     }

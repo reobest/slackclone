@@ -9,7 +9,7 @@ const Chat = () => {
     const chatRef = useRef()
     const [user,loading] = useAuthState(auth)
     const context = useGlobalContext()
-    const {input,setInput,disabled,roomId,setMessege,messege} = context
+    const {input,setInput,disabled,roomId,setMessege,messege,setClose,close} = context
     const handleSubmit = (e) => {
       e.preventDefault()
       const messegeRef =  collection(db,"users",`${roomId}`,"messeges")
@@ -33,8 +33,8 @@ const Chat = () => {
     })
   },[messege,loading])
   return (
-    <ChatContainer >
-        <ChannelName>
+    <ChatContainer close={close}>
+        <ChannelName close={close}>
           {`#${user.displayName}`}
         </ChannelName>
         <Messeges/>
@@ -61,7 +61,7 @@ left: 18%;
 z-index: 200;
 background-color: #fff;
 @media  only screen  and (max-width:450px) {
-    margin-left: 50px;
+    margin-left: ${props => props.close ? '-60px' : '50px'};
     width:100%
 }
 >h1{
@@ -76,7 +76,7 @@ const ChatContainer = styled.div`
     top: 14%;
     overflow-y: scroll;
     @media  only screen  and (max-width:450px) {
-    width: 70%;
+    width: ${props => props.close ? '100%' : '70%'};
 }
 `
 const ChatInput = styled.input`

@@ -10,7 +10,7 @@ import { collection,onSnapshot,query,orderBy } from 'firebase/firestore';
 import { db } from './Firebase';
 const Header = () => {
   const context = useGlobalContext()
-  const {messege,setMessege,roomId,channelName} = context
+  const {messege,setMessege,roomId,channelName,close,setClose} = context
   const [help,setHelp] = useState(false)
   const [channelNameAppeer,setChannelNameAppeer] = useState(false)
   const externalLink = 'https://app.slack.com/';
@@ -28,23 +28,35 @@ const Header = () => {
       const unsub =  onSnapshot(q, (snapshot) => setMessege(snapshot.docs.map((doc) => ({...doc.data()}))))
     }
   }
+  const handleChannelName = () => {
+    setChannelNameAppeer(prev => !prev)
+    setTimeout(() => {
+      setChannelNameAppeer(false)
+    }, 2000);
+  }
+  const handleHelpButton = () => {
+    setHelp(prev => !prev)
+    setTimeout(() => {
+      setHelp(false)
+    }, 2000);
+  }
   return (
     <Container>
-      {channelNameAppeer && <LastChannel>
-        Last Channel : {channelName}
+      {channelNameAppeer && <LastChannel> Last Channel : {channelName}
       </LastChannel>}
         <HeaderLeft>
         </HeaderLeft>
         <HeaderSearch>
-         <BiTimeFive onClick={() => setChannelNameAppeer(prev => !prev)}/>
+         <BiTimeFive onClick={handleChannelName}/>
          <Input placeholder={`Search ${user.displayName}`} onChange={(e) => handleSearch(e.target.value)}/>
          <IoIosSearch/>
         </HeaderSearch>
         <HeaderRight>
-          <RiQuestionLine onClick={()=> setHelp(prev => !prev)}/>
+          <RiQuestionLine onClick={handleHelpButton}/>
           <img src={user.photoURL} onClick={signout} alt='user'/>
         </HeaderRight>
         {help && <Slack  href={externalLink}>Want Help</Slack>}
+        {close === true &&<div className='open' onClick={() => setClose(false)}></div>}
     </Container>
   )
 }
@@ -59,17 +71,18 @@ const LastChannel = styled.div`
     font-size: 12px;
     border-radius: 10px;
     box-sizing: border-box;
-    padding: 3px;
+    padding-left: 5px;
     justify-content: flex-start;
     align-items: center;
     display: flex;
     height: 60%;
     width: 200px;
 @media  only screen  and (max-width:450px) {
-  left: 7px;
-  top: 580px;
-  font-size: 9px;
-  width: 100px;
+  left: 78px;
+    top: 8px;
+    z-index: 10;
+    font-size: 13px;
+    width: 200px;
 }
 `
 const Slack = styled.a`
@@ -83,10 +96,18 @@ const Slack = styled.a`
     font-size: 12px;
     color: #fff;
     @media  only screen  and (max-width:450px) {
-  right: 60px;
-  top: 14px;
-  font-size: 7px;
-  width: 40px;
+      background: #fff;
+    color: #000;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 3px;
+    font-weight: 500;
+    font-size: 11px;
+    border-radius: 5px;
+    top: 10px;
+    height: 20px;
+    width: 100px;
 }
 `
 const Container = styled.div`
@@ -101,6 +122,16 @@ const Container = styled.div`
    justify-content: space-between;
    align-items: center;
    padding: 0 10px;
+   .open{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    border-radius: 10px;
+    background-color: #391055;
+    width: 10px;
+    height: 20px;
+  }
 `
 const HeaderLeft = styled.div`
 

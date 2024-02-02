@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect, useState} from 'react';
 import styled from 'styled-components';
 import List from './SideBarList';
 import {FaPen} from 'react-icons/fa';
@@ -15,7 +15,8 @@ const Sidebar =   () => {
     const [docs,loading] = useCollectionData(query)
     const [user] = useAuthState(auth)
     const context = useGlobalContext()
-    const {addChannel,clickItem,Icon,handleIcon,r,serR,setChannelName} = context
+    const {addChannel,clickItem,Icon,handleIcon,r,serR,setChannelName,setClose,close} = context
+ console.log(close);
     const newList = List.map(( member ) => {
         const {id,name,icon} = member
         if(id===9) {
@@ -44,7 +45,7 @@ const Sidebar =   () => {
     getData()
   },[])  
   return (
-    <SideBarContainer>
+    <SideBarContainer close={close}>
         <SideBarHeader>
             <h1>{user.displayName}</h1>
             <FaPen/> 
@@ -62,6 +63,7 @@ const Sidebar =   () => {
           return null
       })
        }
+       <div className='close' onClick={() => setClose(true)}></div>
     </SideBarContainer>
   )
 };
@@ -135,8 +137,15 @@ bottom: 0;
   width: 17%;
   height: calc(100% - 6vh);
   background-color: var(--slack-color);
+  .close{
+    position: absolute;
+    background-color: #391055;
+    width: 100%;
+    height: 50px;
+    bottom: 20px;
+  }
   @media  only screen  and (max-width:450px) {
-   width: 30%;
+   display: ${props => props.close ? 'none' : 'inline-table'};
     }
 `
 const ListContainer = styled.div`

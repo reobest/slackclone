@@ -9,7 +9,7 @@ const Chat = () => {
     const chatRef = useRef()
     const [user,loading] = useAuthState(auth)
     const context = useGlobalContext()
-    const {input,setInput,disabled,roomId,setMessege,messege,setClose,close} = context
+    const {input,setInput,disabled,roomId,setMessege,messege,close} = context
     const handleSubmit = (e) => {
       e.preventDefault()
       const messegeRef =  collection(db,"users",`${roomId}`,"messeges")

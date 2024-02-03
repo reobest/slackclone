@@ -13,6 +13,7 @@ const AppProvider = ({ children }) => {
     const [r,serR] = useState([])
     const [messege,setMessege] = useState([])
     const [channelName,setChannelName] = useState("")
+    const [name,setName] = useState("")
     let [Counter,setCounter] = useState(0)
     const [close,setClose] = useState(false)
     const handleIcon = () => {
@@ -42,10 +43,15 @@ const AppProvider = ({ children }) => {
         } 
             addDoc(colRef,dataRoom)
      }  
+     const handleName =  () => {     
+        const newName = prompt("Please Enter a Channel Name")
+        setName(newName)
+
+     }
     useEffect(() => { 
     },[messege])
   return (
-    <AppContext.Provider value={{channel,setChannel,addChannel,clickItem,input,setInput,showMessege,disabled,setDisabled,Icon,handleIcon,roomId,r,serR,messege,setMessege,setRoomId,setChannelName,channelName,close,setClose}}>
+    <AppContext.Provider value={{channel,setChannel,addChannel,clickItem,input,setInput,showMessege,disabled,setDisabled,Icon,handleIcon,roomId,r,serR,messege,setMessege,setRoomId,setChannelName,channelName,close,setClose,name,handleName}}>
       {children}
     </AppContext.Provider>
   )

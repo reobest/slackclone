@@ -15,8 +15,7 @@ const Sidebar =   () => {
     const [docs,loading] = useCollectionData(query)
     const [user] = useAuthState(auth)
     const context = useGlobalContext()
-    const {addChannel,clickItem,Icon,handleIcon,r,serR,setChannelName,setClose,close} = context
- console.log(close);
+    const {addChannel,clickItem,Icon,handleIcon,r,serR,setChannelName,setClose,close,name,handleName} = context
     const newList = List.map(( member ) => {
         const {id,name,icon} = member
         if(id===9) {
@@ -47,8 +46,8 @@ const Sidebar =   () => {
   return (
     <SideBarContainer close={close}>
         <SideBarHeader>
-            <h1>{user.displayName}</h1>
-            <FaPen/> 
+            <h1>{name ||user.displayName}</h1>
+            <FaPen onClick={handleName}/> 
         </SideBarHeader>
       {newList}
        {

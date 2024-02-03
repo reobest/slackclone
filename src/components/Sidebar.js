@@ -132,7 +132,7 @@ const SideBarHeader = styled.div`
     }
 `
 const SideBarContainer = styled.div`
-position: fixed;
+position: absolute;
 bottom: 0;
   width: 17%;
   height: calc(100% - 6vh);

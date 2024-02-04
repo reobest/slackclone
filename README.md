@@ -1,4 +1,9 @@
-# sSlack Clone App powered by Firebase
+# Slack Clone App powered by Firebase
+Screenshots
+#Login With Your Google Account
+
+#home Page
+![slack-clone-home](https://github.com/reobest/slackclone/assets/88613447/6d480927-c03f-4d29-8041-21eaa321f811)
 
 # Getting Started with Create React App
 

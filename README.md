@@ -7,6 +7,9 @@ Screenshots <br/>
 
 ![slack-clone-home](https://github.com/reobest/slackclone/assets/88613447/6d480927-c03f-4d29-8041-21eaa321f811)
 
+# Mobile Version
+![mobile-slack-clone](https://github.com/reobest/slackclone/assets/88613447/149246c0-d098-4b98-8be5-a5049e38d64b)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -9,7 +9,7 @@ const Chat = () => {
     const chatRef = useRef()
     const [user,loading] = useAuthState(auth)
     const context = useGlobalContext()
-    const {input,setInput,disabled,roomId,setMessege,messege,close} = context
+    const {input,setInput,disabled,roomId,setMessege,messege,close,setDirectMesseges} = context
     const handleSubmit = (e) => {
       e.preventDefault()
       const messegeRef =  collection(db,"users",`${roomId}`,"messeges")
@@ -21,7 +21,8 @@ const Chat = () => {
         date:new Date().toUTCString(),
       }
       const unsub = onSnapshot(q, (snapshot) => 
-         setMessege(snapshot.docs.map((doc) => ({...doc.data(),messegeData})))
+         setMessege(snapshot.docs.map((doc) => ({...doc.data(),messegeData}))),
+         setDirectMesseges(prev => prev + 1)
       )
       addDoc(messegeRef,messegeData)
       setInput('')

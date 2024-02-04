@@ -16,6 +16,7 @@ const AppProvider = ({ children }) => {
     const [name,setName] = useState("")
     let [Counter,setCounter] = useState(0)
     const [close,setClose] = useState(false)
+    const [directMesseges,setDirectMesseges] = useState(0)
     const handleIcon = () => {
         setIcon(!Icon)
     }
@@ -51,7 +52,7 @@ const AppProvider = ({ children }) => {
     useEffect(() => { 
     },[messege])
   return (
-    <AppContext.Provider value={{channel,setChannel,addChannel,clickItem,input,setInput,showMessege,disabled,setDisabled,Icon,handleIcon,roomId,r,serR,messege,setMessege,setRoomId,setChannelName,channelName,close,setClose,name,handleName}}>
+    <AppContext.Provider value={{channel,setChannel,addChannel,clickItem,input,setInput,showMessege,disabled,setDisabled,Icon,handleIcon,roomId,r,serR,messege,setMessege,setRoomId,setChannelName,channelName,close,setClose,name,handleName,directMesseges,setDirectMesseges}}>
       {children}
     </AppContext.Provider>
   )

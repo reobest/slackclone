@@ -5,6 +5,7 @@ import {FaPen} from 'react-icons/fa';
 import {IoIosArrowForward,IoIosArrowDown} from 'react-icons/io'
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from './Context';
+import { MdMessage } from "react-icons/md";
 import {HiPlus} from 'react-icons/hi'
 import {useAuthState} from 'react-firebase-hooks/auth';
 import { auth, db } from './Firebase';
@@ -15,10 +16,9 @@ const Sidebar =   () => {
     const [docs,loading] = useCollectionData(query)
     const [user] = useAuthState(auth)
     const context = useGlobalContext()
-    const {addChannel,clickItem,Icon,handleIcon,r,serR,setChannelName,setClose,close,name,handleName} = context
+    const {addChannel,clickItem,Icon,handleIcon,r,serR,setChannelName,setClose,close,name,handleName,directMesseges} = context
     const newList = List.map(( member ) => {
         const {id,name,icon} = member
-        if(id===9) {
             return <AddChannelContainer key={id}>
                 <AddChannelIcon>
                  <div onClick={handleIcon}>{Icon ? <IoIosArrowForward/> : <IoIosArrowDown/>}</div>
@@ -26,12 +26,6 @@ const Sidebar =   () => {
                 </AddChannelIcon>
             <Svg><HiPlus onClick={addChannel}/></Svg>
          </AddChannelContainer>
-        }else{
-            return <ListContainer key={id}>
-            <div>{icon}</div>
-            <p>{name}</p>
-         </ListContainer>
-        }
     })  
    const getData = async () => {
       const getDo = await   getDocs(query)
@@ -62,11 +56,33 @@ const Sidebar =   () => {
           return null
       })
        }
+      <Directmesseges>
+        <h1><MdMessage/>  Direct messeges({directMesseges})</h1>
+      </Directmesseges>
        <div className='close' onClick={() => setClose(true)}></div>
     </SideBarContainer>
   )
 };
 export default Sidebar;
+const Directmesseges = styled.div`
+font-size: 15px;
+    padding: 3px;
+    box-sizing: border-box;
+    padding-left: 5px;
+h1{
+  display: flex;
+    font-size: 15px;
+    align-items: center;
+    color: #fff;
+    @media  only screen  and (max-width:450px) {
+     font-size: 10px;
+    }
+    svg{
+      margin-right: 5px;
+    font-size: 14px;
+    }
+}
+`
 const Channels = styled.div`
    cursor:"pointer";
    color: #fff;
@@ -147,37 +163,15 @@ bottom: 0;
    display: ${props => props.close ? 'none' : 'inline-table'};
     }
 `
-const ListContainer = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  :hover{
-       >p{
-        opacity: 0.8;
-       }
-       >div>svg{
-        opacity: 0.8;
-       }
-    }
-  > p{
-    color:#a19898;
-    font-weight: 400;
-    font-size: 1vw;
-    margin-left: 5px;
-    @media  only screen  and (max-width:450px) {
-   font-size: 12px;
-    }
-  }
-  >div>svg{
-    transform: translateY(2px);
-    margin-left: 5px;
-    color:#a19898;
-  }
-`
 const AddChannelContainer = styled.div`
      display: flex;
      align-items: center;
      justify-content: space-between;
+     svg{
+  @media  only screen  and (max-width:450px) {
+       font-size: 13px;
+    }
+}
     `
 const Svg = styled.div`
       font-size: 1.5vw;
@@ -194,7 +188,7 @@ const AddChannelIcon = styled.div`
 }
 @media  only screen  and (max-width:450px) {
      >div>svg{
-       font-size: 8px;
+       font-size: 13px;
      }
     }
 p{
@@ -202,9 +196,6 @@ p{
     @media  only screen  and (max-width:450px) {
    font-size: 16px;
    margin: 7px;
-     >div>svg{
-       font-size: 100px;
-     }
     }
 }
     font-size: 1.1vw;

@@ -1,4 +1,11 @@
 # Slack Clone App powered by Firebase
+
+# Core packages
+ React Router - Routing <br />
+ Styling - Styled Components  <br />
+ Icons - React Icons  <br />
+ data base = Firebase <br/>
+ 
 Screenshots <br/>
 # Login With Your Google Account
 

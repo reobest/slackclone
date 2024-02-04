@@ -1,7 +1,7 @@
 # Slack Clone App powered by Firebase
 Screenshots
 #Login With Your Google Account
-
+![slack-clone-login](https://github.com/reobest/slackclone/assets/88613447/1fd99c1c-0e26-4366-a157-3bb0b342fa9d)
 #home Page
 ![slack-clone-home](https://github.com/reobest/slackclone/assets/88613447/6d480927-c03f-4d29-8041-21eaa321f811)
 

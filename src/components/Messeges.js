@@ -6,35 +6,35 @@ import { db } from './Firebase'
 import { collection } from 'firebase/firestore'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 const Messeges = () => {
-    const {id} = useParams()
-    const context = useGlobalContext()
-    const {showMessege,messege} = context
-      const messegeCollection = collection(db,"users",`${id}`,"messeges")
-      const [docs,loading] =  useCollectionData(messegeCollection)
-     const  thisMessege = !loading ? docs.map((messege) => {
-        return messege
-     }) : null
-   if(thisMessege) {
-      return (
-        <>
-           { showMessege &&
-                  messege.map((Messege) => {
-                   const {name,messege,userimage,date} = Messege
-                     return <MessegesContainer key={Date.now() + Math.random()}>
-                             <UserProfilePhoto src={userimage}/>
-                             <div>
-                             <UserInfo>
-                                     <h5>{name}</h5>
-                                     <TimeStamp> {date} </TimeStamp>    
-                                 </UserInfo>                              
-                               <h6>{messege}</h6>
-                             </div>                              
-                             </MessegesContainer> 
-            })
-           }
-        </>
-      )
-    } 
+  const { id } = useParams()
+  const context = useGlobalContext()
+  const { showMessege, messege } = context
+  const messegeCollection = collection(db, "users", `${id}`, "messeges")
+  const [docs, loading] = useCollectionData(messegeCollection)
+  const thisMessege = !loading ? docs.map((messege) => {
+    return messege
+  }) : null
+  if (thisMessege) {
+    return (
+      <>
+        {showMessege &&
+          messege.map((Messege) => {
+            const { name, messege, userimage, date } = Messege
+            return <MessegesContainer key={Date.now() + Math.random()}>
+              <UserProfilePhoto src={userimage} />
+              <div>
+                <UserInfo>
+                  <h5>{name}</h5>
+                  <TimeStamp> {date} </TimeStamp>
+                </UserInfo>
+                <h6>{messege}</h6>
+              </div>
+            </MessegesContainer>
+          })
+        }
+      </>
+    )
+  }
 }
 export default Messeges
 const MessegesContainer = styled.div`

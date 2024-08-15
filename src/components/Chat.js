@@ -1,49 +1,48 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from './Context'
-import {useAuthState} from 'react-firebase-hooks/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from './Firebase';
 import Messeges from './Messeges'
-import { addDoc, collection ,query,orderBy, onSnapshot} from 'firebase/firestore';
+import { addDoc, collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 const Chat = () => {
-    const chatRef = useRef()
-    const [user,loading] = useAuthState(auth)
-    const context = useGlobalContext()
-    const {input,setInput,disabled,roomId,setMessege,messege,close,setDirectMesseges} = context
-    const handleSubmit = (e) => {
-      e.preventDefault()
-      const messegeRef =  collection(db,"users",`${roomId}`,"messeges")
-      const q = query(messegeRef,orderBy("date","asc"))
-      const messegeData = {
-        name:user.displayName,
-        messege:input,
-        userimage:user.photoURL,
-        date:new Date().toUTCString(),
-      }
-      const unsub = onSnapshot(q, (snapshot) => 
-         setMessege(snapshot.docs.map((doc) => ({...doc.data(),messegeData}))),
-         setDirectMesseges(prev => prev + 1)
-      )
-      addDoc(messegeRef,messegeData)
-      setInput('')
-      return unsub
-  }
+  const chatRef = useRef();
+  const [user, loading] = useAuthState(auth);
+  const context = useGlobalContext();
+  const { input, setInput, disabled, roomId, setMessege, messege, close, setDirectMesseges } = context;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const messegeRef = collection(db, "users", `${roomId}`, "messeges");
+    const messegeData = {
+      name: user.displayName,
+      messege: input,
+      userimage: user.photoURL,
+      date: new Date().toUTCString(),
+    };
+    addDoc(messegeRef, messegeData);
+    setInput('');
+  };
+
   useEffect(() => {
-    chatRef.current.scrollIntoView({
-      behavior:"smooth",
-    })
-  },[messege,loading])
+    const messegeRef = collection(db, "users", `${roomId}`, "messeges");
+    const q = query(messegeRef, orderBy("date", "asc"));
+    const unsub = onSnapshot(q, (snapshot) =>
+      setMessege(snapshot.docs.map((doc) => doc.data()))
+    );
+    return unsub;
+  }, [roomId, setMessege]);
   return (
     <ChatContainer close={close}>
-        <ChannelName close={close}>
-          {`#${user.displayName}`}
-        </ChannelName>
-        <Messeges/>
-        <ChatForm onSubmit={handleSubmit}>
-            <ChatButton></ChatButton>
-          <ChatInput  disabled={ disabled ? true : false} placeholder={`messege #${user.displayName}`} value={input} onChange={(e) => setInput(e.target.value) }/>    
-        </ChatForm>
-        <div style={{width:"100%",height:"2px"}} ref={chatRef}></div>
+      <ChannelName close={close}>
+        {`#${user.displayName}`}
+      </ChannelName>
+      <Messeges />
+      <ChatForm onSubmit={handleSubmit}>
+        <ChatButton></ChatButton>
+        <ChatInput disabled={disabled ? true : false} placeholder={`messege #${user.displayName}`} value={input} onChange={(e) => setInput(e.target.value)} />
+      </ChatForm>
+      <div style={{ width: "100%", height: "2px" }} ref={chatRef}></div>
     </ChatContainer>
   )
 }

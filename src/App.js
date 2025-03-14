@@ -1,6 +1,6 @@
 import './App.css';
-import React from 'react';
-import {Routes,Route} from 'react-router-dom';
+import React ,{useEffect}from 'react';
+import {Routes,Route,useNavigate} from 'react-router-dom';
 import Header from './components/Header';
 import styled from 'styled-components';
 import Sidebar from './components/Sidebar';
@@ -11,6 +11,12 @@ import Login from './components/Login';
 import Loading from './Loading';
 function App() {
   const [user,loading] = useAuthState(auth)
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (window.location.pathname !== '/') {
+      navigate('/');
+    }
+  }, []);
   if(loading) {
     return <Loading/>
   }

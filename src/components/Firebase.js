@@ -1,8 +1,9 @@
 import { initializeApp } from "firebase/app";
 import {getFirestore} from 'firebase/firestore';
 import {getAuth} from 'firebase/auth'
+import { getStorage } from 'firebase/storage';
   const firebaseConfig = {
-    apiKey: 'AIzaSyChgnTRilFfbLwO9sj07xf7xFFrBvwT5Z4' ,
+    apiKey: process.env.REACT_APP_API_KEY ,
     authDomain: "fir-rayan-b57cf.firebaseapp.com",
     projectId: "fir-rayan-b57cf",
     storageBucket: "fir-rayan-b57cf.appspot.com",
@@ -13,4 +14,5 @@ import {getAuth} from 'firebase/auth'
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
   const auth = getAuth(app)
-  export {db,auth}
+  const storage = getStorage();
+  export {db,auth,storage}

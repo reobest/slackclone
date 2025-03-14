@@ -9,7 +9,8 @@ const Chat = () => {
   const chatRef = useRef();
   const [user, loading] = useAuthState(auth);
   const context = useGlobalContext();
-  const { input, setInput, disabled, roomId, setMessege, messege, close, setDirectMesseges } = context;
+  const { input, setInput, disabled, roomId, setMessege, close } = context;
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,13 +26,15 @@ const Chat = () => {
   };
 
   useEffect(() => {
+    setMessege([]);
     const messegeRef = collection(db, "users", `${roomId}`, "messeges");
     const q = query(messegeRef, orderBy("date", "asc"));
-    const unsub = onSnapshot(q, (snapshot) =>
-      setMessege(snapshot.docs.map((doc) => doc.data()))
-    );
-    return unsub;
-  }, [roomId, setMessege]);
+    const unsub = onSnapshot(q, (snapshot) => {
+      const messages = snapshot.docs.map((doc) => doc.data());
+      setMessege(messages);
+    });
+    return () => unsub();
+  }, [roomId, setMessege])
   return (
     <ChatContainer close={close}>
       <ChannelName close={close}>
@@ -57,11 +60,11 @@ height: 50px;
 width: 100%;
 position: fixed;
 top: 6vh;
-left: 18%;
 z-index: 200;
 background-color: #fff;
+transition: all ease-in-out 1s;
+left: ${props => props.close ? '5px' : '32%'};
 @media  only screen  and (max-width:450px) {
-    margin-left: ${props => props.close ? '-60px' : '50px'};
     width:100%
 }
 >h1{
@@ -70,8 +73,8 @@ background-color: #fff;
 `
 const ChatContainer = styled.div`
     height: 78%;
-    width: 83%;
-    position: absolute;
+    width: 100%;
+    position: fixed;
     right: 0;
     top: 14%;
     overflow-y: scroll;
@@ -81,10 +84,9 @@ const ChatContainer = styled.div`
 `
 const ChatInput = styled.input`
     position: fixed;
-    right: 52%;
-    transform: translateX(63.5%);
+    right: 2%;
     bottom: 15px;
-    width: 75vw;
+    width: 60vw;
     border: solid .5px;
     border-color: #adb4b5;
     height: 30px;

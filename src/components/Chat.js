@@ -73,14 +73,11 @@ left: ${props => props.close ? '5px' : '32%'};
 `
 const ChatContainer = styled.div`
     height: 78%;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     right: 0;
     top: 14%;
     overflow-y: scroll;
-    @media  only screen  and (max-width:450px) {
-    width: ${props => props.close ? '100%' : '70%'};
-}
 `
 const ChatInput = styled.input`
     position: fixed;
@@ -97,9 +94,6 @@ const ChatInput = styled.input`
     ::placeholder{
         font-size: 15px;
     }
-@media  only screen  and (max-width:450px) {
-  transform: translateX(53%);
-}
 `
 const ChatButton = styled.button`
 display: none;
